@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camous Hive | Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <h1 class="navbar-brand">Campus Hive</h1>
+    
+        <nav>
+           <ul>
+            <li class="navbar-brand"><a class="navbar-brand" href="index.html">Home</a></li>
+            <li class="navbar-brand"><a class="navbar-brand" href="events.html">Events</a></li>
+            <li class="navbar-brand"><a class="navbar-brand" href="clubs.html">Clubs</a></li>
+          </ul>
+        </nav>
+      </header>
+    
+      <main class="container mt-4 border padder p-3">
+        <h2>Club Profile</h2>
+
+<p>ID: <span id="id"></span></p>
+<p>Name: <span id="name"></span></p>
+<p>Club: <span id="club"></span></p>
+<p>Position: <span id="role"></span></p>
+<p>Skills: <span id="tech"></span></p>
+      </main>
+      <script>
+          const id = new URLSearchParams(window.location.search).get('id');
+//fetching the d from the url
+const students = [
+  {
+    id: '1',
+
+    club: 'Coding Club',
+    role: 'Lead Developer',
+    tech: 'HTML, CSS, JavaScript',
+  },
+  {
+    id: '2',
+
+    club: 'Robotics Club',
+    role: 'Hardware Lead',
+    tech: 'Arduino, Sensors',
+  },
+  {
+    id: '3',
+
+    club: 'Literary Club',
+    role: 'Content Head',
+    tech: 'Writing, Editing',
+  },
+  {
+    id: '4',
+
+    club: 'Design Club',
+    role: 'Creative Lead',
+    tech: 'Figma, Canva',
+  },
+];
+
+const student = students.find((e) => e.id === id);
+//Matching
+if (student) {
+  document.getElementById('id').innerText = student.id;
+
+  document.getElementById('club').innerText = student.club;
+  document.getElementById('role').innerText = student.role;
+  document.getElementById('tech').innerText = student.tech;
+} else {
+  document.querySelector('section').innerHTML =
+    '<h3>Member not found</h3>';
+}
+//
+      </script>
+</body>
+</html>
